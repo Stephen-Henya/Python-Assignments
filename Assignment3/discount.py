@@ -6,9 +6,19 @@ def calculate_discount(price, discount_percent):
     else:
         return price  # return original price if discount < 20
 
+
+# Function to safely get numeric input with validation
+def get_float_input(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+
+
 # Main program
-price = float(input("Enter the original price of the item: "))
-discount_percent = float(input("Enter the discount percentage: "))
+price = get_float_input("Enter the original price of the item: ")
+discount_percent = get_float_input("Enter the discount percentage: ")
 
 final_price = calculate_discount(price, discount_percent)
 
